@@ -1,4 +1,5 @@
 #include "hooks.h"
+#include "functions/light.h"
 
 Present_t oPresent = nullptr;
 ResizeBuffers_t oResizeBuffers = nullptr;
@@ -156,23 +157,6 @@ HRESULT WINAPI hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Fla
 	return oPresent(pSwapChain, SyncInterval, Flags);
 }
 
-typedef void(__fastcall* DrawArrayLightFn)(__int64 a1, CSceneLightObject* a2, __int64 a3);
-inline  DrawArrayLightFn oDrawArrayLight = nullptr;
-
-void __fastcall DrawArrayLight(__int64 a1, CSceneLightObject* a2, __int64 a3)
-{
-	if (!a2)
-		return;
-
-	a2->desc.colorR = 255;
-	a2->desc.colorG = 0;
-	a2->desc.colorB = 0;
-
-	if (oDrawArrayLight)
-	{
-		oDrawArrayLight(a1, a2, a3);
-	}
-}
 
 bool Hook::Hook(const char* pattern, LPVOID detour, LPVOID* original, std::string module)
 {

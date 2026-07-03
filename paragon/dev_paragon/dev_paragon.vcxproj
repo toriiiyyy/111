@@ -37,6 +37,7 @@
     <ClInclude Include="libs\minhook\src\trampoline.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="paragon.h" />
+    <ClInclude Include="src\sdk\functions\light.h" />
     <ClInclude Include="src\sdk\hooks.h" />
     <ClInclude Include="src\sdk\Interfaces\c_scene_object.h" />
     <ClInclude Include="src\sdk\Interfaces\engine.h" />
@@ -67,6 +68,7 @@
     <ClCompile Include="libs\minhook\src\hde\hde64.c" />
     <ClCompile Include="libs\minhook\src\hook.c" />
     <ClCompile Include="libs\minhook\src\trampoline.c" />
+    <ClCompile Include="src\sdk\functions\light.cpp" />
     <ClCompile Include="src\sdk\hooks.cpp" />
     <ClCompile Include="src\sdk\Interfaces\engine.cpp" />
     <ClCompile Include="src\sdk\Interfaces\Interfaces.cpp" />
@@ -200,8 +202,8 @@
       <PreprocessorDefinitions>NDEBUG;DEVPARAGON_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
